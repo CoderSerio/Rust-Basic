@@ -8,9 +8,8 @@
 // Execute `rustlings hint lifetimes1` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
-
-fn longest(x: &str, y: &str) -> &str {
+// 类型生命周期，用处之一就是，让不同的变量的生命周期相互关联
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         x
     } else {

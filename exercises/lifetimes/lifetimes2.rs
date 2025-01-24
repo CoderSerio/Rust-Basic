@@ -6,8 +6,6 @@
 // Execute `rustlings hint lifetimes2` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
-
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         x
@@ -22,6 +20,8 @@ fn main() {
     {
         let string2 = String::from("xyz");
         result = longest(string1.as_str(), string2.as_str());
+        println!("The longest string is '{}'", result);
     }
-    println!("The longest string is '{}'", result);
+    // 这里为什么会导致报错呢？ 因为 longest 返回的是一个引用，放到外面的话，这个所引用的值可能失效了，也就会导致 result 成为一个悬垂引用
+    // println!("The longest string is '{}'", result);
 }
